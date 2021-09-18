@@ -1,0 +1,11 @@
+.header {
+    background-color: #F3EAF1;
+}
+
+.nav-link {
+    color: #200D1E;
+}
+
+button:focus {
+    outline: #9961E1 5px auto ;
+}
