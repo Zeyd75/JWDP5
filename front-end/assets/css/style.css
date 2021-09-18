@@ -9,3 +9,14 @@
 button:focus {
     outline: #dad2d9 5px auto ;
 }
+
+@media (min-width: 992px) {
+    .navbar-light .navbar-brand {
+        padding: .5rem 10rem;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        padding-right: 5rem;
+        font-size: 20px;
+    }
+}
