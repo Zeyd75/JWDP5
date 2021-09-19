@@ -1,4 +1,4 @@
-.header {
+.header, footer, .purple {
     background-color: #F3EAF1;
 }
 
@@ -6,8 +6,39 @@
     color: #200D1E;
 }
 
+@font-face {
+    font-family: "Belligerent Madness";
+    src: url("../fonts/belligerent-webfont.woff");
+}
+
 button:focus {
     outline: #dad2d9 5px auto ;
+}
+
+.main, .blocPanier, .commande, footer {
+    margin-top: 20px;
+}
+
+h1 {
+    font-family: "Belligerent Madness";
+}
+
+h2 {
+    font-size: 1.3rem;
+    text-align: center;
+}
+table {
+    width: 100%;
+}
+
+footer {
+    padding: 10px;
+}
+
+/*PANIER*/
+.btn {
+    background: linear-gradient(to right, #e57e00, #945ce7);
+    color: white;
 }
 
 @media (min-width: 992px) {
