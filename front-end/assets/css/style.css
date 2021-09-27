@@ -1,18 +1,14 @@
-.header, footer, .purple {
-    background-color: #F3EAF1;
-}
-
-.nav-link {
-    color: #200D1E;
-}
-
 @font-face {
     font-family: "Belligerent Madness";
     src: url("../fonts/belligerent-webfont.woff");
 }
 
-button:focus {
-    outline: #dad2d9 5px auto ;
+.header, footer, .tableHeader {
+    background-color: #F3EAF1;
+}
+
+.nav-link {
+    color: #200D1E;
 }
 
 .main, .blocPanier, .commande, footer {
