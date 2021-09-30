@@ -25,10 +25,32 @@ form.email.addEventListener('change',function() {
     validEmail(this);
 });
 
+//Écouter la soumission du formulaire
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(validNames(form.nom) && validNames(form.prenom) && validAdresse(form.adresse) && validCodePostal(form.codePostal) && validNames(form.ville) && validEmail(form.email)) {
+        form.submit();
+    }
+});
+
 // ---------- VALIDATION DE NOM, PRÉNOM, VILLE ----------
 const validNames = function(inputNames) {
     let namesRegex = new RegExp("^([A-Za-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð. '-]+)$");   
-    let testNames = namesRegex.test(inputNames.value)
+
+    let small = inputNames.nextElementSibling;
+    
+    if(namesRegex.test(inputNames.value)) {
+        small.innerHTML = 'Entrée valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+    }
+    else {
+        small.innerHTML = 'Entrée non valide';
+        small.classList.remove('text-success');
+        small.classList.add('text-danger');
+        return false;
+    }
 };
 
 // ---------- VALIDATION DE L'ADRESSE ----------
@@ -41,11 +63,13 @@ const validAdresse = function(inputAdresse) {
         small.innerHTML = 'Adresse valide';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
+        return true;
     }
     else {
         small.innerHTML = 'Adresse non valide';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
+        return false;
     }
 };
 
@@ -59,11 +83,13 @@ const validCodePostal = function(inputCodePostal) {
         small.innerHTML = 'Code postal valide';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
+        return true;
     }
     else {
         small.innerHTML = 'Code postal non valide';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
+        return false;
     }
 };
 
@@ -80,10 +106,12 @@ const validEmail = function(inputEmail) {
         small.innerHTML = 'Email valide';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
+        return true;
     }
     else {
         small.innerHTML = 'Email non valide';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
+        return false;
     }
 };

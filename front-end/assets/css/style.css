@@ -3,7 +3,7 @@
     src: url("../fonts/belligerent-webfont.woff");
 }
 
-.header, footer, .tableHeader {
+.header, footer, .card, .tableHeader {
     background-color: #F3EAF1;
 }
 
@@ -25,6 +25,10 @@ h2 {
 }
 table {
     width: 100%;
+}
+
+.card {
+    margin: 1rem 0;
 }
 
 footer {
