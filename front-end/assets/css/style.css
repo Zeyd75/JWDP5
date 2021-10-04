@@ -23,12 +23,27 @@ h2 {
     font-size: 1.3rem;
     text-align: center;
 }
+
 table {
     width: 100%;
 }
 
+.teddyLink {
+    color: black;
+}
+
 .card {
     margin: 1rem 0;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.teddyPrice {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 footer {
