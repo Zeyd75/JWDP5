@@ -22,9 +22,9 @@ function teddiesDisplay(data) {
                         <img class="card-img-top" src="${teddy.imageUrl}" alt="${teddy.name}">
                         <div class="row card-body">
                             <h3 class="card-title col-9">${teddy.name}</h3>
-                            <p class="teddyPrice col-3">${teddy.price}</p>
+                            <p class="teddyPrice col-3 h3 align-self-center">${teddy.price / 100}€</p>
                         </div>
-                        <p class="card-test">${teddy.description}</p>
+                        <p class="card-test text-center">${teddy.description}</p>
                     </div>
                   </a>
                 </div>`;

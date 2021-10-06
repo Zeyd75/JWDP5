@@ -34,6 +34,7 @@ table {
 
 .card {
     margin: 1rem 0;
+    animation: 1.5s ease-in 0s reverse both slidein;
 }
 
 .card-img-top {
