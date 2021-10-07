@@ -28,13 +28,15 @@ table {
     width: 100%;
 }
 
+.galery {
+    animation: 1.5s ease-in 0s reverse both slidein;}
+
 .teddyLink {
     color: black;
 }
 
 .card {
     margin: 1rem 0;
-    animation: 1.5s ease-in 0s reverse both slidein;
 }
 
 .card-img-top {
@@ -49,6 +51,19 @@ table {
 
 footer {
     padding: 10px;
+}
+
+/* KEYFRAME */
+@keyframes slidein {
+    0% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /*PANIER*/
