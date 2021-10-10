@@ -17,12 +17,12 @@ function teddiesDisplay(data) {
   let display = '<div class="row teddy">';
   for (let teddy of data) {
     display += `<div class="col-sm-12 col-lg-4">
-                  <a href="#" class="teddyLink">
-                    <div class="card">
+                  <a href="#" class="stretched-link">
+                    <div class="card shadow">
                         <img class="card-img-top" src="${teddy.imageUrl}" alt="${teddy.name}">
                         <div class="row card-body">
-                            <h3 class="card-title col-9">${teddy.name}</h3>
-                            <p class="teddyPrice col-3 h3 align-self-center">${teddy.price / 100}€</p>
+                            <h3 class="card-title col-8">${teddy.name}</h3>
+                            <p class="teddyPrice col-4 h3 text-center align-self-center">${teddy.price / 100},00€</p>
                         </div>
                         <p class="card-test text-center">${teddy.description}</p>
                     </div>

@@ -3,7 +3,7 @@
     src: url("../fonts/belligerent-webfont.woff");
 }
 
-.header, footer, .card, .tableHeader {
+.header, footer, .card, .tableHeader, .product-bg {
     background-color: #F3EAF1;
 }
 
@@ -11,7 +11,7 @@
     color: #200D1E;
 }
 
-.main, .blocPanier, .commande, footer {
+.main, .blocPanier, .commande {
     margin-top: 20px;
 }
 
@@ -31,8 +31,14 @@ table {
 .galery {
     animation: 1.5s ease-in 0s reverse both slidein;}
 
-.teddyLink {
+.stretched-link {
     color: black;
+    text-decoration: none;
+}
+
+.stretched-link:hover {
+    color: black;
+    text-decoration: none;
 }
 
 .card {
@@ -44,13 +50,17 @@ table {
     object-fit: cover;
 }
 
-.teddyPrice {
-    font-size: 20px;
+.card-title {
+    font-size: 25px;
+}
+
+.teddyPrice, .teddyPrice-produit {
+    font-size: 17px;
     font-weight: bold;
 }
 
 footer {
-    padding: 10px;
+    bottom: 0;
 }
 
 /* KEYFRAME */
@@ -72,6 +82,11 @@ footer {
     color: white;
 }
 
+
+/* IPAD */
+
+
+/* LARGE SCREEN */
 @media (min-width: 992px) {
     .navbar-light .navbar-brand {
         padding: .5rem 10rem;
@@ -80,5 +95,22 @@ footer {
     .navbar-expand-lg .navbar-collapse {
         padding-right: 5rem;
         font-size: 20px;
+    }
+
+    .teddyCharacteristics {
+        padding-top: 50px;
+    }
+
+    .teddyName {
+        font-size: 50px;
+    }
+
+    .teddyPrice-produit {
+        font-size: 25px;
+    }
+
+    .teddyDescription {
+        font-size: 20px;
+        padding-top: 60px;
     }
 }
