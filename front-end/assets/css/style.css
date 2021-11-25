@@ -1,116 +1,123 @@
 @font-face {
-    font-family: "Belligerent Madness";
-    src: url("../fonts/belligerent-webfont.woff");
+  font-family: "Belligerent Madness";
+  src: url("../fonts/belligerent-webfont.woff");
 }
 
-.header, footer, .card, .tableHeader, .product-bg {
-    background-color: #F3EAF1;
+.header,
+footer,
+.card,
+.tableHeader,
+.product-bg,
+.product-image {
+  background-color: #f3eaf1;
 }
 
 .nav-link {
-    color: #200D1E;
+  color: #200d1e;
 }
 
-.main, .blocPanier, .commande {
-    margin-top: 20px;
+.main,
+.blocPanier,
+.commande {
+  margin-top: 20px;
 }
 
 h1 {
-    font-family: "Belligerent Madness";
+  font-family: "Belligerent Madness";
 }
 
 h2 {
-    font-size: 1.3rem;
-    text-align: center;
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .galery {
-    animation: 1.5s ease-in 0s reverse both slidein;}
+  animation: 1.5s ease-in 0s reverse both slidein;
+}
 
 .stretched-link {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .stretched-link:hover {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .card {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .card-img-top {
-    height: 250px;
-    object-fit: cover;
+  height: 250px;
+  object-fit: cover;
 }
 
 .card-title {
-    font-size: 25px;
+  font-size: 25px;
 }
 
-.teddyPrice, .teddyPrice-produit {
-    font-size: 17px;
-    font-weight: bold;
+.teddyPrice,
+.teddyPrice-produit {
+  font-size: 17px;
+  font-weight: bold;
 }
 
 footer {
-    bottom: 0;
+  bottom: 0;
 }
 
 /* KEYFRAME */
 @keyframes slidein {
-    0% {
-        opacity: 1;
-    }
-    85% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /*PANIER*/
 .btn {
-    background: linear-gradient(to right, #e57e00, #945ce7);
-    color: white;
+  background: linear-gradient(to right, #e57e00, #945ce7);
+  color: white;
 }
-
 
 /* IPAD */
 
-
 /* LARGE SCREEN */
 @media (min-width: 992px) {
-    .navbar-light .navbar-brand {
-        padding: .5rem 10rem;
-    }
+  .navbar-light .navbar-brand {
+    padding: 0.5rem 10rem;
+  }
 
-    .navbar-expand-lg .navbar-collapse {
-        padding-right: 5rem;
-        font-size: 20px;
-    }
+  .navbar-expand-lg .navbar-collapse {
+    padding-right: 5rem;
+    font-size: 20px;
+  }
 
-    .teddyCharacteristics {
-        padding-top: 50px;
-    }
+  .teddyCharacteristics {
+    padding-top: 50px;
+  }
 
-    .teddyName {
-        font-size: 50px;
-    }
+  .teddyName {
+    font-size: 50px;
+  }
 
-    .teddyPrice-produit {
-        font-size: 25px;
-    }
+  .teddyPrice-produit {
+    font-size: 25px;
+  }
 
-    .teddyDescription {
-        font-size: 20px;
-        padding-top: 60px;
-    }
+  .teddyDescription {
+    font-size: 20px;
+    padding-top: 60px;
+  }
 }

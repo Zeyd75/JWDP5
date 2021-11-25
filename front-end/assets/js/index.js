@@ -1,14 +1,14 @@
 //Utilisation de la méthode fetch pour établir le lien avec l'API
-fetch('http://localhost:3000/api/teddies')
-  .then(function(response) {
-    if(response.ok) {
+fetch("http://localhost:3000/api/teddies")
+  .then(function (response) {
+    if (response.ok) {
       return response.json();
     }
   })
-  .then(function(data) {
+  .then(function (data) {
     teddiesDisplay(data);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     alert("Connection impossible");
   });
 
@@ -19,17 +19,22 @@ function teddiesDisplay(data) {
     display += `<div class="col-sm-12 col-lg-4">
                   <a href="produit.html?id=${teddy._id}" class="stretched-link">
                     <div class="card shadow">
-                        <img class="card-img-top" src="${teddy.imageUrl}" alt="${teddy.name}">
+                        <img class="card-img-top" src="${
+                          teddy.imageUrl
+                        }" alt="${teddy.name}">
                         <div class="row card-body">
                             <h3 class="card-title col-8">${teddy.name}</h3>
-                            <p class="teddyPrice col-4 h3 text-center align-self-center">${teddy.price / 100},00€</p>
+                            <p class="teddyPrice col-4 h3 text-center align-self-center">${
+                              teddy.price / 100
+                            },00€</p>
                         </div>
-                        <p class="card-test text-center">${teddy.description}</p>
+                        <p class="card-test text-center">${
+                          teddy.description
+                        }</p>
                     </div>
                   </a>
                 </div>`;
   }
-  display += '</div>';
-  document.querySelector('#teddiesList').innerHTML = display;
-};
-
+  display += "</div>";
+  document.querySelector("#teddiesList").innerHTML = display;
+}
