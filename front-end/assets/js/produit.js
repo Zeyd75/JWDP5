@@ -38,12 +38,21 @@ function teddyDisplay(teddy) {
                       }</p>
                       <select id='selectColor' class=" col-auto col-lg-12 form-select form-select-lg mt-2 mb-3 mt-lg-4 .form-select-lg example"></select>
                       <div class="col col-lg-12 text-right pr-0 mb-3 mt-lg-5">
-                        <button type="button" class="btn">Ajouter au panier</button>
+                        <button type="button" id="productBtn" class="btn">Ajouter au panier</button>
                       </div>
                     </div>
                   </div>`;
   singleTeddy += "</div>";
   document.getElementById("singleTeddy").innerHTML = singleTeddy;
+  let button = document.getElementById("productBtn");
+  button.addEventListener("click", (e) => {
+    addToBasket({
+      id: teddy.id,
+      price: teddy.price,
+      name: teddy.name,
+      imageUrl: teddy.imageUrl,
+    });
+  });
 }
 
 //Fonction permettant d'afficher les différentes couleurs possibles
@@ -52,4 +61,15 @@ function chooseColor(teddy) {
   for (let color of teddy.colors) {
     colorChoice.innerHTML += `<option value='${color}'>${color}</option>`;
   }
+}
+
+//Fonction permettant d'ajouter le produit au panier
+function addToBasket(teddy) {
+  const storedProducts = localStorage.oribear;
+  let teddiesArray = [];
+  if (storedProducts) {
+    teddiesArray = JSON.parse(storedProducts);
+  }
+  teddiesArray.push(teddy);
+  localStorage.oribear = JSON.stringify(teddiesArray);
 }
