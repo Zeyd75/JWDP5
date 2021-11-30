@@ -14,6 +14,7 @@ fetch(`http://localhost:3000/api/teddies/${teddyId}`)
     let teddy = data;
     teddyDisplay(teddy);
     chooseColor(teddy);
+    chooseQuantity();
   })
   .catch(function (error) {
     alert("Connection impossible");
@@ -37,6 +38,7 @@ function teddyDisplay(teddy) {
                         teddy.description
                       }</p>
                       <select id='selectColor' class=" col-auto col-lg-12 form-select form-select-lg mt-2 mb-3 mt-lg-4 .form-select-lg example"></select>
+                      <select id='selectQuantity' class=" col-auto col-lg-12 form-select form-select-lg mt-2 mb-3 mt-lg-4 .form-select-lg example"></select>
                       <div class="col col-lg-12 text-right pr-0 mb-3 mt-lg-5">
                         <button type="button" id="productBtn" class="btn">Ajouter au panier</button>
                       </div>
@@ -47,10 +49,11 @@ function teddyDisplay(teddy) {
   let button = document.getElementById("productBtn");
   button.addEventListener("click", (e) => {
     addToBasket({
-      id: teddy.id,
+      id: teddy._id,
       price: teddy.price,
       name: teddy.name,
       imageUrl: teddy.imageUrl,
+      quantity: document.getElementById("selectQuantity").value,
     });
   });
 }
@@ -61,6 +64,15 @@ function chooseColor(teddy) {
   for (let color of teddy.colors) {
     colorChoice.innerHTML += `<option value='${color}'>${color}</option>`;
   }
+}
+
+//Fonction permettant de modifier et afficher la quantité
+function chooseQuantity() {
+  let quantityChoice = document.getElementById("selectQuantity");
+  for (let i = 1; i <= 10; i++) {
+    quantityChoice.innerHTML += `<option value='${i}'>${i}</option>`;
+  }
+  quantityChoice.value = 1;
 }
 
 //Fonction permettant d'ajouter le produit au panier

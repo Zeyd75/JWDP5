@@ -149,9 +149,13 @@ function displayStoredTeddies(teddies) {
     td.appendChild(img);
     basketContent.appendChild(td);
   }*/
+  console.log(teddies);
   let basketDisplay = "";
+  let totalAmount = 0;
   for (let teddy of teddies) {
-    basketDisplay += `<td class="w-25">
+    const subtotal = teddy.quantity * teddy.price;
+    totalAmount += subtotal;
+    basketDisplay += `<tr><td class="w-25">
                 <img
                 src="${teddy.imageUrl}"
                 alt="${teddy.name}"
@@ -159,11 +163,14 @@ function displayStoredTeddies(teddies) {
               />
               ${teddy.name}
             </td>
-            <td>1</td>
-            <td>${teddy.price}</td>
-            <td>29,00€</td>`;
+            <td>${teddy.quantity}</td>
+            <td>${teddy.price / 100}€</td>
+            <td>${subtotal / 100}€</td></tr>`;
   }
-  document.getElementById("basketContent").innerHTML = basketDisplay + "<br>";
+  document.getElementById("basketContent").innerHTML += basketDisplay;
+  document.getElementById(
+    "basketContent"
+  ).innerHTML += `<tr><td>Total : ${totalAmount}</td></tr>`;
 }
 
 displayStoredTeddies(teddiesArray);
