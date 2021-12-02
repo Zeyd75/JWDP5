@@ -25,21 +25,6 @@ form.email.addEventListener("change", function () {
   validEmail(this);
 });
 
-//Écouter la soumission du formulaire
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (
-    validNames(form.nom) &&
-    validNames(form.prenom) &&
-    validAdresse(form.adresse) &&
-    validCodePostal(form.codePostal) &&
-    validNames(form.ville) &&
-    validEmail(form.email)
-  ) {
-    form.submit();
-  }
-});
-
 // ---------- VALIDATION DE NOM, PRÉNOM, VILLE ----------
 const validNames = function (inputNames) {
   let namesRegex = new RegExp(
@@ -125,8 +110,7 @@ const validEmail = function (inputEmail) {
     return false;
   }
 };
-
-//Taf Bruno
+//Fonction permettant de récupérer et afficher les produits mis dans le panier
 const storedProducts = localStorage.oribear;
 let teddiesArray = [];
 if (storedProducts) {
@@ -134,21 +118,6 @@ if (storedProducts) {
 }
 
 function displayStoredTeddies(teddies) {
-  /*let innerHTML = "";
-  const basketContent = document.getElementById("basketContent");
-  for (let teddy of teddies) {
-    let td = document.createElement("td");
-    let h3 = document.createElement("h3");
-    h3.innerText = teddy.name;
-    let p = document.createElement("p");
-    p.innerText = teddy.price;
-    let img = document.createElement("img");
-    img.src = teddy.imageUrl;
-    td.appendChild(h3);
-    td.appendChild(p);
-    td.appendChild(img);
-    basketContent.appendChild(td);
-  }*/
   console.log(teddies);
   let basketDisplay = "";
   let totalAmount = 0;
@@ -163,9 +132,9 @@ function displayStoredTeddies(teddies) {
               />
               ${teddy.name}
             </td>
-            <td>${teddy.quantity}</td>
-            <td>${teddy.price / 100}€</td>
-            <td>${subtotal / 100}€</td></tr>`;
+            <td class="text-center">${teddy.quantity}</td>
+            <td class="text-center">${teddy.price / 100}€</td>
+            <td class="text-center">${subtotal / 100}€</td></tr>`;
   }
   document.getElementById("basketContent").innerHTML += basketDisplay;
   document.getElementById(
@@ -174,3 +143,58 @@ function displayStoredTeddies(teddies) {
 }
 
 displayStoredTeddies(teddiesArray);
+
+//Envoi des données du formulaire
+const validate = document.getElementById("validate");
+validate.addEventListener("click", (event) => {
+  //Création de l'objet utilisateur
+  let contact = {
+    lastName: document.getElementById("lastName").value,
+    firstName: document.getElementById("firstName").value,
+    address: document.getElementById("address").value,
+    postalCode: document.getElementById("postalCode").value,
+    city: document.getElementById("city").value,
+    email: document.getElementById("email").value,
+  };
+  //Vérification des données du formulaire
+  if (
+    validNames(document.getElementById("lastName")) &&
+    validNames(document.getElementById("firstName")) &&
+    validAdresse(document.getElementById("address")) &&
+    validCodePostal(document.getElementById("postalCode")) &&
+    validNames(document.getElementById("city")) &&
+    validEmail(document.getElementById("email"))
+  ) {
+    event.preventDefault();
+    let products = teddiesArray.map((teddy) => {
+      return teddy.id;
+    });
+
+    //Envoi données user via method post
+    let sendForm = fetch("http://localhost:3000/api/teddies/order", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ contact, products }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("validate", JSON.stringify(data));
+        localStorage.removeItem("oribear");
+        document.location = "validation.html?orderId=" + data.orderId;
+      })
+      .catch((error) => console.log("error: " + error));
+  } else {
+    console.log(
+      validNames(document.getElementById("lastName")),
+      validNames(document.getElementById("firstName")),
+      validAdresse(document.getElementById("address")),
+      validCodePostal(document.getElementById("postalCode")),
+      validNames(document.getElementById("city")),
+      validEmail(document.getElementById("email"))
+    );
+    alert("Veuillez fournir des données valides pour finaliser votre achat");
+    return false;
+  }
+});
