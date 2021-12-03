@@ -110,13 +110,27 @@ const validEmail = function (inputEmail) {
     return false;
   }
 };
-//Fonction permettant de récupérer et afficher les produits mis dans le panier
+//Récupération des produits mis dans le panier
 const storedProducts = localStorage.oribear;
 let teddiesArray = [];
 if (storedProducts) {
   teddiesArray = JSON.parse(storedProducts);
 }
 
+//Modification du h2 si au moins un produit est stocké et apparition d'un boutton pour vider le panier
+let basketTitle = document.getElementById("basketTitle");
+if (storedProducts != null) {
+  basketTitle.innerText = "Votre panier contient :";
+  let emptyDiv = document.createElement("div");
+  let emptyDivContent = `<button id='emptyButton'>Vider le panier</button>`;
+  emptyDiv.innerHTML = emptyDivContent;
+  document.getElementById("blocPanier").appendChild(emptyDiv);
+  displayStoredTeddies(teddiesArray);
+} else {
+  basketTitle.innerText = "Votre panier est vide.";
+}
+
+//Affichage de produits mis dans le panier
 function displayStoredTeddies(teddies) {
   console.log(teddies);
   let basketDisplay = "";
@@ -133,16 +147,23 @@ function displayStoredTeddies(teddies) {
               ${teddy.name}
             </td>
             <td class="text-center">${teddy.quantity}</td>
-            <td class="text-center">${teddy.price / 100}€</td>
-            <td class="text-center">${subtotal / 100}€</td></tr>`;
+            <td class="text-center">${(teddy.price / 100).toFixed(2)}€</td>
+            <td class="text-center">${(subtotal / 100).toFixed(2)}€</td></tr>`;
   }
   document.getElementById("basketContent").innerHTML += basketDisplay;
-  document.getElementById(
-    "basketContent"
-  ).innerHTML += `<tr><td>Total : ${totalAmount}</td></tr>`;
+  document.getElementById("basketContent").innerHTML += `<tr><td>Total : ${(
+    totalAmount / 100
+  ).toFixed(2)}€</td></tr>`;
+  localStorage.setItem("bill", totalAmount);
 }
 
-displayStoredTeddies(teddiesArray);
+//Activation du bouton permettant de vider le panier
+let emptyButton = document.getElementById("emptyButton");
+emptyButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  localStorage.clear();
+  window.location.href = "panier.html";
+});
 
 //Envoi des données du formulaire
 const validate = document.getElementById("validate");
