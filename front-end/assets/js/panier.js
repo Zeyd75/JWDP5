@@ -142,18 +142,24 @@ function displayStoredTeddies(teddies) {
                 <img
                 src="${teddy.imageUrl}"
                 alt="${teddy.name}"
-                class="w-25"
+                class="w-100"
               />
               ${teddy.name}
             </td>
-            <td class="text-center">${teddy.quantity}</td>
-            <td class="text-center">${(teddy.price / 100).toFixed(2)}€</td>
-            <td class="text-center">${(subtotal / 100).toFixed(2)}€</td></tr>`;
+            <td class="text-center align-middle">${teddy.quantity}</td>
+            <td class="text-center align-middle">${(teddy.price / 100).toFixed(
+              2
+            )}€</td>
+            <td class="text-center align-middle">${(subtotal / 100).toFixed(
+              2
+            )}€</td></tr>`;
   }
   document.getElementById("basketContent").innerHTML += basketDisplay;
-  document.getElementById("basketContent").innerHTML += `<tr><td>Total : ${(
+  document.getElementById(
+    "basketContent"
+  ).innerHTML += `<tr><td colspan="4" class="text-right"><strong>Total : ${(
     totalAmount / 100
-  ).toFixed(2)}€</td></tr>`;
+  ).toFixed(2)}€</strong></td></tr>`;
   localStorage.setItem("bill", totalAmount);
 }
 
