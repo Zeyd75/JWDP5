@@ -122,6 +122,7 @@ let basketTitle = document.getElementById("basketTitle");
 if (storedProducts != null) {
   basketTitle.innerText = "Votre panier contient :";
   let emptyDiv = document.createElement("div");
+  emptyDiv.classList.add("text-right");
   let emptyDivContent = `<button id='emptyButton'>Vider le panier</button>`;
   emptyDiv.innerHTML = emptyDivContent;
   document.getElementById("blocPanier").appendChild(emptyDiv);
@@ -138,11 +139,11 @@ function displayStoredTeddies(teddies) {
   for (let teddy of teddies) {
     const subtotal = teddy.quantity * teddy.price;
     totalAmount += subtotal;
-    basketDisplay += `<tr><td class="w-25">
+    basketDisplay += `<tr><td class="text-center w-25">
                 <img
                 src="${teddy.imageUrl}"
                 alt="${teddy.name}"
-                class="w-100"
+                class="w-50"
               />
               ${teddy.name}
             </td>

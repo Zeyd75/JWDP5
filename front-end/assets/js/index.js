@@ -19,9 +19,7 @@ function teddiesDisplay(data) {
     display += `<div class="col-sm-12 col-lg-4">
                   <a href="produit.html?id=${teddy._id}" class="stretched-link">
                     <div class="card shadow">
-                        <img class="card-img-top" src="${
-                          teddy.imageUrl
-                        }" alt="${teddy.name}">
+                        <img src="${teddy.imageUrl}" alt="${teddy.name}">
                         <div class="row card-body">
                             <h3 class="card-title col-8">${teddy.name}</h3>
                             <p class="teddyPrice col-4 h3 text-center align-self-center">${
