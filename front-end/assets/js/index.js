@@ -1,22 +1,27 @@
-//Utilisation de la méthode fetch pour établir le lien avec l'API
-fetch("http://localhost:3000/api/teddies")
-  .then(function (response) {
-    if (response.ok) {
-      return response.json();
-    }
-  })
-  .then(function (data) {
-    teddiesDisplay(data);
-  })
-  .catch(function (error) {
-    alert("Connection impossible");
-  });
+//Modèle pour mieux présenter le code
+(() => {
+  "use strict";
+  //Utilisation de la méthode fetch pour établir le lien avec l'API
+  function getApiData() {
+    fetch("http://localhost:3000/api/teddies")
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(function (data) {
+        teddiesDisplay(data);
+      })
+      .catch(function (error) {
+        alert("Connection impossible");
+      });
+  }
 
-//Fonction permettant d'afficher les produits et leurs caractéristiques
-function teddiesDisplay(data) {
-  let display = '<div class="row teddy">';
-  for (let teddy of data) {
-    display += `<div class="col-sm-12 col-lg-4">
+  //Fonction permettant d'afficher les produits et leurs caractéristiques
+  function teddiesDisplay(data) {
+    let display = '<div class="row teddy">';
+    for (let teddy of data) {
+      display += `<div class="col-sm-12 col-lg-4">
                   <a href="produit.html?id=${teddy._id}" class="stretched-link">
                     <div class="card shadow">
                         <img src="${teddy.imageUrl}" alt="${teddy.name}">
@@ -32,7 +37,10 @@ function teddiesDisplay(data) {
                     </div>
                   </a>
                 </div>`;
+    }
+    display += "</div>";
+    document.querySelector("#teddiesList").innerHTML = display;
   }
-  display += "</div>";
-  document.querySelector("#teddiesList").innerHTML = display;
-}
+
+  getApiData();
+})();

@@ -1,24 +1,27 @@
-//Récupération de l'ID du produit via l'URL
-let searchParams = new URLSearchParams(window.location.search);
-let teddyId = searchParams.get("id");
+function getSingleTeddy() {
+  //Récupération de l'ID du produit via l'URL
+  let searchParams = new URLSearchParams(window.location.search);
+  let teddyId = searchParams.get("id");
 
-//Lien vers l'API en ciblant son ID
-fetch(`http://localhost:3000/api/teddies/${teddyId}`)
-  .then(function (response) {
-    if (response.ok) {
-      return response.json();
-    }
-  })
-  .then(function (data) {
-    console.log(data);
-    let teddy = data;
-    teddyDisplay(teddy);
-    chooseColor(teddy);
-    chooseQuantity();
-  })
-  .catch(function (error) {
-    alert("Connection impossible");
-  });
+  //Lien vers l'API en ciblant son ID
+  fetch(`http://localhost:3000/api/teddies/${teddyId}`)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+      let teddy = data;
+      teddyDisplay(teddy);
+      chooseColor(teddy);
+      chooseQuantity();
+    })
+    .catch(function (error) {
+      alert("Connection impossible");
+    });
+}
+getSingleTeddy();
 
 //Fonction permettant d'afficher le produit selectionné
 function teddyDisplay(teddy) {

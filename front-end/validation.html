@@ -1,85 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Validation</title>
   </head>
   <body>
-    <!DOCTYPE html>
-    <html lang="fr">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-
-        <link rel="stylesheet" href="assets/css/style.css" />
-
-        <title>Validation</title>
-      </head>
-      <body>
-        <div class="container-fluid">
-          <div class="row header">
-            <nav class="col navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="index.html"
-                ><img src="assets/img/logo.png" alt="logo_orinoco"
-              /></a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarContent"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div
-                id="navbarContent"
-                class="collapse navbar-collapse justify-content-end"
-              >
-                <ul class="navbar-nav justify-content-around">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="panier.html"
-                      ><i class="fas fa-shopping-cart"></i>Panier</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </nav>
+    <div class="container-fluid">
+      <div class="row header">
+        <nav class="col navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="index.html"
+            ><img src="assets/img/logo.png" alt="logo_orinoco"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            id="navbarContent"
+            class="collapse navbar-collapse justify-content-end"
+          >
+            <ul class="navbar-nav justify-content-around">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="panier.html"
+                  ><i class="fas fa-shopping-cart"></i>Panier</a
+                >
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="container-fluid main">
-          <div class="text-center">
-            <h1>Oribear</h1>
-          </div>
-        </div>
+        </nav>
+      </div>
+    </div>
+    <div class="container-fluid main">
+      <div class="text-center">
+        <h1>Oribear</h1>
+      </div>
+    </div>
 
-        <div class="container text-center mt-5">
-          <h2>Oribear vous Remercie !</h2>
-          <div id="confirmation" class="mt-4"></div>
-          <div id="contactDetails" class="mt-4"></div>
-        </div>
+    <div class="container text-center mt-5">
+      <h2>Oribear vous Remercie !</h2>
+      <div id="confirmation" class="mt-4"></div>
+      <div id="contactDetails" class="mt-4"></div>
+    </div>
 
-        <footer class="col-12 text-center p-md-4 mt-5 fixed-bottom">
-          <img src="assets/img/logo-sm.png" alt="logo_orinoco" />
-        </footer>
-        <script src="./assets/js/validation.js"></script>
-      </body>
-    </html>
+    <footer class="col-12 text-center p-md-4 mt-5 fixed-bottom">
+      <img src="assets/img/logo-sm.png" alt="logo_orinoco" />
+    </footer>
+    <script src="./assets/js/validation.js"></script>
   </body>
 </html>
