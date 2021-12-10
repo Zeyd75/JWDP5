@@ -21,6 +21,7 @@
       .catch(function (error) {
         alert("Connection impossible");
       });
+    console.log(teddyId);
   }
   getSingleTeddy();
 

@@ -1,5 +1,6 @@
 (() => {
   "use strict";
+  //Récupération du montant total
   function getStoredInfo() {
     const validate = JSON.parse(localStorage.validate);
     let bill = localStorage.getItem("bill");
