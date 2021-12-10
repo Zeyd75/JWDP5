@@ -1,4 +1,3 @@
-//Modèle pour mieux présenter le code
 (() => {
   "use strict";
   //Utilisation de la méthode fetch pour établir le lien avec l'API

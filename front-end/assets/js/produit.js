@@ -11,7 +11,6 @@ function getSingleTeddy() {
       }
     })
     .then(function (data) {
-      console.log(data);
       let teddy = data;
       teddyDisplay(teddy);
       chooseColor(teddy);

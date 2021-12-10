@@ -152,16 +152,8 @@ function basketSending() {
           localStorage.removeItem("oribear");
           document.location = "validation.html?orderId=" + data.orderId;
         })
-        .catch((error) => console.log("error: " + error));
+        .catch(error);
     } else {
-      console.log(
-        validNames(document.getElementById("lastName")),
-        validNames(document.getElementById("firstName")),
-        validAdresse(document.getElementById("address")),
-        validCodePostal(document.getElementById("postalCode")),
-        validNames(document.getElementById("city")),
-        validEmail(document.getElementById("email"))
-      );
       alert("Veuillez fournir des données valides pour finaliser votre achat");
       return false;
     }
@@ -191,7 +183,6 @@ function basketSending() {
 
   //Affichage de produits mis dans le panier
   function displayStoredTeddies(teddies) {
-    console.log(teddies);
     let basketDisplay = "";
     let totalAmount = 0;
     for (let teddy of teddies) {
