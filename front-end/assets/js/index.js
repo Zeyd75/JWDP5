@@ -22,7 +22,9 @@
     let display = '<div class="row teddy">';
     for (let teddy of data) {
       display += `<div class="col-sm-12 col-lg-4">
-                  <a href="produit.html?id=${teddy._id}" class="stretched-link">
+                  <a href="front-end/produit.html?id=${
+                    teddy._id
+                  }" class="stretched-link">
                     <div class="card shadow">
                         <img src="${teddy.imageUrl}" alt="${teddy.name}">
                         <div class="row card-body">

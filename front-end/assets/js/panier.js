@@ -111,9 +111,62 @@ function onChange() {
       return false;
     }
   };
-}
 
-function basket() {
+  //Envoi des données du formulaire
+  const validate = document.getElementById("validate");
+  validate.addEventListener("click", (event) => {
+    //Création de l'objet utilisateur
+    let contact = {
+      lastName: document.getElementById("lastName").value,
+      firstName: document.getElementById("firstName").value,
+      address: document.getElementById("address").value,
+      postalCode: document.getElementById("postalCode").value,
+      city: document.getElementById("city").value,
+      email: document.getElementById("email").value,
+    };
+    //Vérification des données du formulaire
+    if (
+      validNames(document.getElementById("lastName")) &&
+      validNames(document.getElementById("firstName")) &&
+      validAdresse(document.getElementById("address")) &&
+      validCodePostal(document.getElementById("postalCode")) &&
+      validNames(document.getElementById("city")) &&
+      validEmail(document.getElementById("email"))
+    ) {
+      event.preventDefault();
+      let products = teddiesArray.map((teddy) => {
+        return teddy.id;
+      });
+
+      //Envoi données user via method post
+      let sendForm = fetch("http://localhost:3000/api/teddies/order", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ contact, products }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          localStorage.setItem("validate", JSON.stringify(data));
+          localStorage.removeItem("oribear");
+          document.location = "validation.html?orderId=" + data.orderId;
+        })
+        .catch((error) => console.log("error: " + error));
+    } else {
+      console.log(
+        validNames(document.getElementById("lastName")),
+        validNames(document.getElementById("firstName")),
+        validAdresse(document.getElementById("address")),
+        validCodePostal(document.getElementById("postalCode")),
+        validNames(document.getElementById("city")),
+        validEmail(document.getElementById("email"))
+      );
+      alert("Veuillez fournir des données valides pour finaliser votre achat");
+      return false;
+    }
+  });
+
   //Récupération des produits mis dans le panier
   const storedProducts = localStorage.oribear;
   let teddiesArray = [];
@@ -181,60 +234,5 @@ function basket() {
     emptyButton.remove();
     document.getElementById("formContainer").innerHTML = "";
   });
-
-  //Envoi des données du formulaire
-  const validate = document.getElementById("validate");
-  validate.addEventListener("click", (event) => {
-    //Création de l'objet utilisateur
-    let contact = {
-      lastName: document.getElementById("lastName").value,
-      firstName: document.getElementById("firstName").value,
-      address: document.getElementById("address").value,
-      postalCode: document.getElementById("postalCode").value,
-      city: document.getElementById("city").value,
-      email: document.getElementById("email").value,
-    };
-    //Vérification des données du formulaire
-    if (
-      validNames(document.getElementById("lastName")) &&
-      validNames(document.getElementById("firstName")) &&
-      validAdresse(document.getElementById("address")) &&
-      validCodePostal(document.getElementById("postalCode")) &&
-      validNames(document.getElementById("city")) &&
-      validEmail(document.getElementById("email"))
-    ) {
-      event.preventDefault();
-      let products = teddiesArray.map((teddy) => {
-        return teddy.id;
-      });
-
-      //Envoi données user via method post
-      let sendForm = fetch("http://localhost:3000/api/teddies/order", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ contact, products }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("validate", JSON.stringify(data));
-          localStorage.removeItem("oribear");
-          document.location = "validation.html?orderId=" + data.orderId;
-        })
-        .catch((error) => console.log("error: " + error));
-    } else {
-      console.log(
-        validNames(document.getElementById("lastName")),
-        validNames(document.getElementById("firstName")),
-        validAdresse(document.getElementById("address")),
-        validCodePostal(document.getElementById("postalCode")),
-        validNames(document.getElementById("city")),
-        validEmail(document.getElementById("email"))
-      );
-      alert("Veuillez fournir des données valides pour finaliser votre achat");
-      return false;
-    }
-  });
 }
-const basket_ = basket();
+const onChange_ = onChange();
