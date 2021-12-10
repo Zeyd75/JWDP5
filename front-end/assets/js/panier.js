@@ -1,6 +1,6 @@
 let form = document.querySelector("#loginForm");
 
-function onChange() {
+function basketSending() {
   //Écouter la modification des champs du formulaire
   form.nom.addEventListener("change", function () {
     validNames(this);
@@ -201,7 +201,7 @@ function onChange() {
                 <img
                 src="${teddy.imageUrl}"
                 alt="${teddy.name}"
-                class="w-50"
+                class="w-100"
               />
               ${teddy.name}
             </td>
@@ -235,4 +235,4 @@ function onChange() {
     document.getElementById("formContainer").innerHTML = "";
   });
 }
-const onChange_ = onChange();
+const basketSending_ = basketSending();
